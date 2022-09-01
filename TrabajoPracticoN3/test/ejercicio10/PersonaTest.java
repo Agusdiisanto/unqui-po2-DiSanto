@@ -21,7 +21,7 @@ public class PersonaTest {
 	
 	
 	
-	@Test 
+	@Test
 	public void unaPersonaTieneUnaEdad() {
 		
 		System.out.println(persona1.edad());
