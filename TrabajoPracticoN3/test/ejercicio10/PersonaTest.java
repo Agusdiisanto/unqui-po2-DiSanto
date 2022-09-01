@@ -1,5 +1,6 @@
 package ejercicio10;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
@@ -24,10 +25,17 @@ public class PersonaTest {
 	@Test
 	public void unaPersonaTieneUnaEdad() {
 		
-		System.out.println(persona1.edad());
-		
 		assertEquals(persona1.edad(), 19);
 		
+	}
+	
+	@Test
+	public void cuandoLaPersona1EsMenorAPersona2() {
+		
+		System.out.println(persona1.edad());
+		System.out.println(persona2.edad());
+		
+		assertTrue(persona1.esMenorQue(persona2));
 	}
 	
 	
