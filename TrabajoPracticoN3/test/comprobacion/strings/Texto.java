@@ -1,4 +1,4 @@
-package comprobacionStrings;
+package comprobacion.strings;
 
 public class Texto {
 	
