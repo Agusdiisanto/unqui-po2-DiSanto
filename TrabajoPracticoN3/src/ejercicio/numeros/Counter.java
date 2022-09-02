@@ -1,4 +1,4 @@
-package ejercicioNumeros;
+package ejercicio.numeros;
 
 import java.util.ArrayList;
 import java.util.List;

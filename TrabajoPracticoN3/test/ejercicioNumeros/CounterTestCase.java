@@ -6,7 +6,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ejercicioNumeros.Counter;
+import ejercicio.numeros.Counter;
 
 
 public class CounterTestCase {
