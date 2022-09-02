@@ -27,7 +27,6 @@ public class EquipoDeTrabajo {
 			totalDePromedio += persona.edad();
 		}
 		return totalDePromedio;
-		
 	}
 	
 	
