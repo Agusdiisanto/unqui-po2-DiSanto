@@ -1,4 +1,4 @@
-package ejercicio6;
+package ejercicio.numeros;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -20,13 +20,13 @@ public class EquipoDeTrabajo {
 		return nombreDelEquipo;
 	}
 	
-	public float promedioDeEdadIntegrantes() {
+	public int promedioDeEdadIntegrantes() {
 		
-		float totalDePromedio = 0;
+		int totalDePromedio = 0;
 		for (Persona persona : integrantes) {
 			totalDePromedio += persona.edad();
 		}
-		return totalDePromedio;
+		return (totalDePromedio / integrantes.size()) ;
 	}
 	
 	
