@@ -29,6 +29,4 @@ public class EquipoDeTrabajo {
 		return (totalDePromedio / integrantes.size()) ;
 	}
 	
-	
-	
 }

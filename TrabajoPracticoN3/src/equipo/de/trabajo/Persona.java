@@ -5,12 +5,9 @@ import java.time.Period;
 
 public class Persona {
 	
-
 	private String nombre;
 	private String apellido;
 	private LocalDate fechaDeNacimiento;
-	
-	
 	
 	public Persona(String nombre, LocalDate fechaDeNacimiento, String apellido) {
 		this.nombre = nombre;
@@ -22,12 +19,10 @@ public class Persona {
 		return nombre;
 	}
 	
-	
 	public String getApellido() {
 		return apellido;
 	}
 
-	
 	public LocalDate getFechaDeNacimiento() {
 		return fechaDeNacimiento;
 	}
@@ -37,7 +32,6 @@ public class Persona {
 		Period periodo = Period.between(fechaDeNacimiento, fechaHoy);
 		return periodo.getYears();
 	}
-	
 	
 	public boolean esMenorQue(Persona personaAComparar) {
 		return (this.edad() < personaAComparar.edad());
