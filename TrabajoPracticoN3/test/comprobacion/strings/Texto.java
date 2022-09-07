@@ -6,7 +6,7 @@ public class Texto {
 		
 		String a = "abc";
 		String s= a;
-		String t;
+		//String t;
 		
 		System.out.println(s.length()); 
 		// System.out.print(t.length()); no esta instanciada, es decir no tiene nada
