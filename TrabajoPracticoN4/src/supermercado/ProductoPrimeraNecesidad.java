@@ -26,4 +26,8 @@ public class ProductoPrimeraNecesidad extends Producto {
 		 return super.getPrecio() * (this.getDescuento() / 100);
 	}
 	
+	public double precioConDescuentoAplicado() {
+		return super.getPrecio() - this.realizarDescuento();
+	}
+	
 }
