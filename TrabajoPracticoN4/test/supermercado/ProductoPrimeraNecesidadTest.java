@@ -18,4 +18,13 @@ public class ProductoPrimeraNecesidadTest {
 	public void testCalcularPrecio() {
 		assertEquals(7.2, leche.getPrecio());
 	}
+	
+	@Test
+	public void testCalcularDescuento() {
+		
+		leche.setDescuento(90);
+		assertEquals(6.48, leche.realizarDescuento());
+		
+	}
+	
 }

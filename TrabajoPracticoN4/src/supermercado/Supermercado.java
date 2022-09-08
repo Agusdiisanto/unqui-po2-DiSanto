@@ -36,7 +36,6 @@ public class Supermercado {
 			precioTotal = precioTotal + producto.getPrecio();
 		}
 		return precioTotal;
-		
 	}
 	
 }
