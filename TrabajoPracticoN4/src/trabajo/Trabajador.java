@@ -1,14 +1,12 @@
 package trabajo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Trabajador {
 	
-	private ArrayList<Ingreso> ingresos;
-	
-	public Trabajador( ArrayList<Ingreso> ingresos) {
-		this.ingresos = ingresos;
-	}
+	private List<Ingreso> ingresos = new ArrayList<Ingreso>();
+
 	
 	public double getTotalPercibido() {
 		
@@ -20,12 +18,12 @@ public class Trabajador {
 		return totalPercibido;
 	}
 	
-	public void reciboDeSueldo(Ingreso ingreso) {
-		this.ingresos.add(ingreso);
+	public void reciboDeSueldo(Ingreso ingresoDeSueldo) {
+		this.ingresos.add(ingresoDeSueldo);
 	}
 	
 	public double getimpuestoAPagar() {
-		return (this.getmontoImponible() /2 *100);
+		return (this.getmontoImponible() *2 /100);
 	}
 	
 	public double getmontoImponible() {
