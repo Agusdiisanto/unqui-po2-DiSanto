@@ -10,11 +10,11 @@ import servicios.Servicio;
 public class CajaTest {
 	
 	Caja caja1;
-	AutoServicio producto1;
-	AutoServicio producto2;
-	AutoServicio producto3;
-	AutoServicio servicio1;
-	AutoServicio servicio2;
+	Producto producto1;
+	Producto producto2;
+	ProductoDeCooperativa producto3;
+	Servicio servicio1;
+	Servicio servicio2;
 
 	
 	@BeforeEach
