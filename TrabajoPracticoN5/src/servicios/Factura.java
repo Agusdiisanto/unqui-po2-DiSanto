@@ -4,5 +4,4 @@ public interface Factura {
 	
 	public double montoAPagar();
 	
-
 }
