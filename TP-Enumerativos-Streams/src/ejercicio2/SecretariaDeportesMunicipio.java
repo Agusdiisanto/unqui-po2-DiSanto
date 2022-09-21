@@ -46,12 +46,6 @@ public class SecretariaDeportesMunicipio {
             .forEach(act -> System.out.println(act.toString()));
     }
 
-    /**
-     * Crea un Map con las actividades menos costosas de cada deporte.
-     * 
-     * @author juan manuel
-     * @return Map - Un mapa con los deportes como clave y su actividad menos costosa como valor.
-     */
     public Map<Deporte, Actividad> actividadesConMenorCosto() {
         Map<Deporte, Actividad> map = new HashMap<Deporte, Actividad>();
         
@@ -62,7 +56,6 @@ public class SecretariaDeportesMunicipio {
                  map.put(deporte, actividadMasBarata);
              }
         }
-
         return map;
     }
 	
