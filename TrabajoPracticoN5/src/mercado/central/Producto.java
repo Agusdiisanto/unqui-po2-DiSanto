@@ -13,7 +13,6 @@ public class Producto implements AutoServicio {
 		return monto;
 	}
 
-
 	@Override
 	public double abonarProducto() {
 		// TODO Auto-generated method stub

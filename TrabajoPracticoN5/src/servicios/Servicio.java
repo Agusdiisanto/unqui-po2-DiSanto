@@ -6,6 +6,7 @@ public class Servicio implements Factura , AutoServicio{
 
 	private double costoPorUnidad;
 	private int cantidadDeUnidades;
+	private AgenciaRecaudadora agencia;
 	
 	public Servicio(double costoPorUnidad, int cantidadDeUnidades) {
 		this.costoPorUnidad = costoPorUnidad;
@@ -22,13 +23,13 @@ public class Servicio implements Factura , AutoServicio{
 
 	@Override
 	public double montoAPagar() {
-		// TODO Auto-generated method stub
+		agencia.registrarPago(this);
 		return this.getCostoPorUnidad()*this.getCantidadDeUnidades();
 	}
 
 	@Override
 	public double abonarProducto() {
-		// TODO Auto-generated method stub
+		agencia.registrarPago(this);
 		return this.montoAPagar();
 	}
 

@@ -30,19 +30,17 @@ public class Banco {
 		return this;
 	}
 	
-	public void otorgarPrestamoACliente(Cliente cliente, float montoAOtorgar) {
+	public void otorgarPrestamoACliente(Cliente cliente, double montoAOtorgar) {
 		cliente.recibirElEfectivoOtorgado(montoAOtorgar);
 	}
 	
-	public void iniciarTramiteDeSolicitudDeCreditoPara(Cliente unCliente,SolicitudDeCredito credito) {
+	public void iniciarTramiteDeSolicitudDeCreditoPara(SolicitudDeCredito credito) {
 		
-		if(unCliente == credito.getCliente()) {
 			if(credito.esSolicitudAceptable()) {
 				this.registrarSolicitud(credito);
-				this.otorgarPrestamoACliente(unCliente, credito.getMontoSolicitado());
+				this.otorgarPrestamoACliente(credito.getCliente(), credito.getMontoSolicitado());
 			}
 		}
-	}
 	
 	public boolean noHayRegistrosDeCreditos() {
 		return creditosSolicitados.isEmpty();
@@ -51,4 +49,10 @@ public class Banco {
 	public boolean tieneAlCliente(Cliente unCliente) {
 		return clientes.contains(unCliente);
 	}
+	
+	public double montoTotalADesembolsar() {
+		return creditosSolicitados.stream().mapToDouble(p->p.getMontoSolicitado()).sum();
+	}
+	
+	
 }

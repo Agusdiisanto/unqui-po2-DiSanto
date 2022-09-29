@@ -5,9 +5,9 @@ public class Cliente {
 	String nombreYApellido;
 	String direccion;
 	int edad;
-	float sueldoNetoMensual;
+	double sueldoNetoMensual;
 	
-	public Cliente(String nombreYApellido, String direccion, int edad, float sueldoNetoMensual) {
+	public Cliente(String nombreYApellido, String direccion, int edad, double sueldoNetoMensual) {
 		this.nombreYApellido = nombreYApellido;
 		this.direccion = direccion;
 		this.edad = edad;
@@ -23,15 +23,15 @@ public class Cliente {
 	public int getEdad() {
 		return edad;
 	}
-	public float getSueldoNetoMensual() {
+	public double getSueldoNetoMensual() {
 		return sueldoNetoMensual;
 	}
 	
-	public float getSueldoNetoAnual() {
+	public double getSueldoNetoAnual() {
 		return getSueldoNetoMensual() * 12 ;
 	}
 	
-	public void recibirElEfectivoOtorgado(float efectivoOtorgado) {
+	public void recibirElEfectivoOtorgado(double efectivoOtorgado) {
 		this.sueldoNetoMensual += efectivoOtorgado;
 	}
 	 

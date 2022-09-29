@@ -2,11 +2,11 @@ package bancos.y.prestamos;
 
 public abstract class SolicitudDeCredito {
 	
-	Cliente cliente;
-	float montoSolicitado;
-	int cuotasAPagar;
+	private Cliente cliente;
+	private double montoSolicitado;
+	private int cuotasAPagar;
 	
-    public SolicitudDeCredito(Cliente cliente, float montoSolicitado, int cuotasAPagar) {
+    public SolicitudDeCredito(Cliente cliente, double montoSolicitado, int cuotasAPagar) {
 		this.cliente = cliente;
 		this.montoSolicitado = montoSolicitado;
 		this.cuotasAPagar = cuotasAPagar;
@@ -18,7 +18,7 @@ public abstract class SolicitudDeCredito {
 		return cliente;
 	}
 
-	public float getMontoSolicitado() {
+	public double getMontoSolicitado() {
 		return montoSolicitado;
 	}
 
@@ -26,7 +26,7 @@ public abstract class SolicitudDeCredito {
 		return cuotasAPagar;
 	}
 	
-	public float montoAPagarPorMonto() {
+	public double montoAPagarPorMonto() {
 		return this.getMontoSolicitado() / this.getCuotasAPagar();
 	}
 

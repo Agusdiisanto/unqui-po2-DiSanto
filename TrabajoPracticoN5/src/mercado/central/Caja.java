@@ -8,7 +8,6 @@ public class Caja {
 	private List<AutoServicio> productosEnStock = new ArrayList<>();
 	private List<AutoServicio> productosDelCliente = new ArrayList<>();
 	
-	
 	public double montoAPagar() {
 		 return productosDelCliente.stream().mapToDouble(p->p.abonarProducto()).sum();
 	}

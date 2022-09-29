@@ -9,8 +9,8 @@ public class CreditoPersonal extends SolicitudDeCredito {
 
 	@Override
 	public boolean esSolicitudAceptable() {
-		float sueldoMenosEl70 = cliente.getSueldoNetoMensual() - cliente.getSueldoNetoMensual() *70 /100;
-		return ((cliente.getSueldoNetoAnual() > 15000) && (sueldoMenosEl70 > this.montoAPagarPorMonto()));
+		double sueldoMenosEl70 = this.getCliente().getSueldoNetoMensual() - (this.getCliente().getSueldoNetoMensual() *70 /100);
+		return ((this.getCliente().getSueldoNetoAnual() > 15000) && (sueldoMenosEl70 > this.montoAPagarPorMonto()));
 	}
 	
 }
