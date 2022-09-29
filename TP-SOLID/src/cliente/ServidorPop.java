@@ -2,7 +2,7 @@ package cliente;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServidorPop implements IFuncionalidadServidor {
+public class ServidorPop implements IServidor {
 
 	public List<Correo> recibirNuevos(String user, String pass) {
 		List<Correo> retorno = new ArrayList<Correo>();
