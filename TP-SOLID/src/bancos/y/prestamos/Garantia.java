@@ -6,6 +6,12 @@ public class Garantia {
 	float valorFiscal;
 	String direccion;
 	
+	public Garantia(String descripcion, float valorFiscal, String direccion) {
+		this.descripcion = descripcion;
+		this.valorFiscal = valorFiscal;
+		this.direccion = direccion;
+	}
+	
 	public String getDescripcion() {
 		return descripcion;
 	}

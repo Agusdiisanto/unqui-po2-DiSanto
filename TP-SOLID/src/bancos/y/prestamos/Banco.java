@@ -21,13 +21,34 @@ public class Banco {
 		return clientes.size();
 	}
 	
+	public int cantidadDeSolicitudes(){
+		return creditosSolicitados.size();
+	}
+	
 	public Banco registrarSolicitud(SolicitudDeCredito creditoARegistrar) {
 		creditosSolicitados.add(creditoARegistrar);
 		return this;
 	}
 	
 	public void otorgarPrestamoACliente(Cliente cliente, float montoAOtorgar) {
-		cliente.agarrarElEfectivoOtorgado(montoAOtorgar);
+		cliente.recibirElEfectivoOtorgado(montoAOtorgar);
 	}
 	
+	public void iniciarTramiteDeSolicitudDeCreditoPara(Cliente unCliente,SolicitudDeCredito credito) {
+		
+		if(unCliente == credito.getCliente()) {
+			if(credito.esSolicitudAceptable()) {
+				this.registrarSolicitud(credito);
+				this.otorgarPrestamoACliente(unCliente, credito.getMontoSolicitado());
+			}
+		}
+	}
+	
+	public boolean noHayRegistrosDeCreditos() {
+		return creditosSolicitados.isEmpty();
+	}
+	
+	public boolean tieneAlCliente(Cliente unCliente) {
+		return clientes.contains(unCliente);
+	}
 }

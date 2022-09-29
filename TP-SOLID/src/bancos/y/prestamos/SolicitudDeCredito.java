@@ -6,7 +6,13 @@ public abstract class SolicitudDeCredito {
 	float montoSolicitado;
 	int cuotasAPagar;
 	
-    public abstract boolean esSolicitudAceptable();
+    public SolicitudDeCredito(Cliente cliente, float montoSolicitado, int cuotasAPagar) {
+		this.cliente = cliente;
+		this.montoSolicitado = montoSolicitado;
+		this.cuotasAPagar = cuotasAPagar;
+	}
+
+	public abstract boolean esSolicitudAceptable();
 
 	public Cliente getCliente() {
 		return cliente;

@@ -31,17 +31,8 @@ public class Cliente {
 		return getSueldoNetoMensual() * 12 ;
 	}
 	
-	public void iniciarSolicitudDeCredito(Banco banco, SolicitudDeCredito credito) {
-		
-		if(credito.esSolicitudAceptable()) {
-			banco.registrarSolicitud(credito);
-			banco.otorgarPrestamoACliente(this, credito.getMontoSolicitado());
-		}
-		
-	}
-	
-	public void agarrarElEfectivoOtorgado(float efectivoOtorgado) {
+	public void recibirElEfectivoOtorgado(float efectivoOtorgado) {
 		this.sueldoNetoMensual += efectivoOtorgado;
 	}
-	
+	 
 }
