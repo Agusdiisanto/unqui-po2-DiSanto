@@ -1,15 +1,32 @@
 package poker.src;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PokerStatus {
+/*
+ * Cree otra version de pokerStatus porque queria ver el progreso
+ * De como se va modificando los metodos o los mensajes 
+ * y que formas hay de mejorar un codigo
+ * 
+ */
+
+public class PokerStatusV2 {
 	
-	// PARA QUE SEA POKER NECESITO 4 DEL MISMO NUMERO O DEL MISMO PALO || SOLO POR EL MOMENTO DE 
-	public boolean verificar(String carta1, String carta2, String carta3, String carta4, String carta5) {
-	
-		return (this.hayPoker(carta1, carta2, carta3, carta4, carta5));
+	// AHORA QUIERO DECIR QUE SE FORMA, SI POKER, COLOR O TRIO
+	public String verificar(String carta1, String carta2, String carta3, String carta4, String carta5) {
+		
+		String resultado = "No se formo nada";
+		
+		if(this.hayPoker(carta1, carta2, carta3, carta4, carta5)) {
+			resultado = "Poker";
+		}
+		else if (this.hayColor(carta1, carta2, carta3, carta4, carta5)) {
+			resultado = "Color";
+		}
+		else if(this.hayTrio(carta1, carta2, carta3, carta4, carta5)) {
+			resultado = "Trio";
+		}
+		return resultado;
 	}
 	
 	public boolean hayPoker(String carta1, String carta2, String carta3, String carta4, String carta5) {
