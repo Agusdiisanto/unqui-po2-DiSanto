@@ -17,14 +17,14 @@ public class PokerStatusV2 {
 		
 		String resultado = "No se formo nada";
 		
-		if(this.hayPoker(carta1, carta2, carta3, carta4, carta5)) {
-			resultado = "Poker";
-		}
-		else if (this.hayColor(carta1, carta2, carta3, carta4, carta5)) {
+		if(this.hayColor(carta1, carta2, carta3, carta4, carta5)) {
 			resultado = "Color";
 		}
-		else if(this.hayTrio(carta1, carta2, carta3, carta4, carta5)) {
+		else if (this.hayTrio(carta1, carta2, carta3, carta4, carta5)) {
 			resultado = "Trio";
+		}
+		else if(this.hayPoker(carta1, carta2, carta3, carta4, carta5)) {
+			resultado = "Poker";
 		}
 		return resultado;
 	}
@@ -92,7 +92,7 @@ public class PokerStatusV2 {
         List<String> cartas1 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta1, c)).collect(Collectors.toList());
         List<String> cartas2 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta2, c)).collect(Collectors.toList());
         List<String> cartas3 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta3, c)).collect(Collectors.toList());
-        return (cartas1.size() >= 3 || cartas2.size() >= 3 || cartas3.size() >= 3);
+        return (cartas1.size() == 3 || cartas2.size() == 3 || cartas3.size() == 3);
     }
 	
 	

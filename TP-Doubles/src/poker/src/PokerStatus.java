@@ -9,7 +9,7 @@ public class PokerStatus {
 	// PARA QUE SEA POKER NECESITO 4 DEL MISMO NUMERO O DEL MISMO PALO || SOLO POR EL MOMENTO DE 
 	public boolean verificar(String carta1, String carta2, String carta3, String carta4, String carta5) {
 	
-		return (this.hayPoker(carta1, carta2, carta3, carta4, carta5));
+		return (this.hayPoker(carta1, carta2, carta3, carta4, carta5)); 
 	}
 	
 	public boolean hayPoker(String carta1, String carta2, String carta3, String carta4, String carta5) {

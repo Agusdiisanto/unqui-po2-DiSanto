@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import poker.src.PokerStatus;
 import poker.src.PokerStatusV2;
+import poker.src.PokerStatusV3;
 
 public class PokerStatusTest {
 	
@@ -17,7 +18,7 @@ public class PokerStatusTest {
     String carta3D  = "3D";
     String carta5D  = "5D";
     String carta8D  = "8D";
-    String carta10D = "10D";
+    String carta10D = "10D"; 
     
     String carta5P  = "5P";
     String carta7P  = "7P";
@@ -27,17 +28,19 @@ public class PokerStatusTest {
     
     String carta5T  = "5T";
     String carta9T  = "9T";
-	
-	
-	
+	 
+  
 	PokerStatus juegoDeMesa;
 	PokerStatusV2 juegoDeMesa2;
+	PokerStatusV3 juegoDeMesa3;
+	
 	
 	@BeforeEach
 	public void setUp() {
 		
 		juegoDeMesa = new PokerStatus();
 		juegoDeMesa2 = new PokerStatusV2();
+
 	}
 	
 	@Test 
@@ -96,13 +99,19 @@ public class PokerStatusTest {
     }
 	
     @Test
-    public void test12_cuandoHayMismoPaloOMismoNumeroDevuelvePoker() {
-        assertEquals("Poker", juegoDeMesa2.verificar(carta10D, carta1D, carta3D, carta8D, carta5C));
-    }
-	
-    @Test
-    public void test13_cuandoHayColorDevuelveColor() {
+    public void test12_cuandoHayCincoCartasDelMismoPaloDevuelveColor() {
         assertEquals("Color", juegoDeMesa2.verificar(carta10D, carta1D, carta3D, carta8D, carta5D));
     }
 	
+    @Test
+    public void test13_cuandoHayTresCartasDelMismoNumeroDevuelveTrio() {
+        assertEquals("Trio", juegoDeMesa2.verificar(carta5T, carta1D, carta5P, carta9T, carta5D));
+    }
+	
+    @Test
+    public void test14_cuandoHayCuatroCartasDelMismoNumeroDevuelvePoker() {
+        assertEquals("Poker", juegoDeMesa2.verificar(carta5T, carta5C, carta5P, carta9T, carta5D));
+    }
+	
+    
 }
