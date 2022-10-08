@@ -23,6 +23,15 @@ public class PokerStatusV3 {
 		else if (this.verificar(listaDeCartas1) == "Poker" && this.verificar(listaDeCartas2) == "Trio") {
 			esGanador = !esGanador;
 		}
+		else if (this.verificar(listaDeCartas1) == "Poker" && this.verificar(listaDeCartas2) == "Poker") {
+			esGanador = !esGanador;
+		}
+		else if (this.verificar(listaDeCartas1) == "Color" && this.verificar(listaDeCartas2) == "Color") {
+			esGanador = !esGanador;
+		}
+		else if (this.verificar(listaDeCartas1) == "Trio" && this.verificar(listaDeCartas2) == "Trio") {
+			esGanador = !esGanador;
+		}
 		
 		return esGanador;
 		
