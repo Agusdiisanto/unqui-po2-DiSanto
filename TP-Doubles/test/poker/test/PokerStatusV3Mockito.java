@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -74,7 +77,9 @@ public class PokerStatusV3Mockito {
 		when(carta10D.getNumeroDeCarta()).thenReturn("10");
 		when(carta10D.getPaloDeCarta()).thenReturn(Palo.DIAMANTE);
 		
-		assertEquals("Color", juegoDeMesa.verificar(carta10D, carta1D, carta3D, carta8D, carta5D));
+		List<Carta> listaDeCartas =  Arrays.asList(carta1D,carta3D,carta5D,carta8D,carta10D);
+		
+		assertEquals("Color", juegoDeMesa.verificar(listaDeCartas));
 	
 	}
 	
@@ -96,7 +101,9 @@ public class PokerStatusV3Mockito {
 		when(carta10D.getNumeroDeCarta()).thenReturn("10");
 		when(carta10D.getPaloDeCarta()).thenReturn(Palo.DIAMANTE);
 		
-		assertEquals("Trio", juegoDeMesa.verificar(carta5T, carta5P, carta8D, carta10D, carta5D));
+		List<Carta> listaDeCartas =  Arrays.asList(carta5T,carta5P,carta5D,carta8D,carta10D);
+		
+		assertEquals("Trio", juegoDeMesa.verificar(listaDeCartas));
 	
 	}
 		
@@ -118,7 +125,9 @@ public class PokerStatusV3Mockito {
 		when(carta10D.getNumeroDeCarta()).thenReturn("10");
 		when(carta10D.getPaloDeCarta()).thenReturn(Palo.DIAMANTE);
 		
-		assertEquals("Poker", juegoDeMesa.verificar(carta3D, carta5D, carta8D, carta10D, carta5T));
+		List<Carta> listaDeCartas =  Arrays.asList(carta5T,carta3D,carta5D,carta8D,carta10D);
+		
+		assertEquals("Poker", juegoDeMesa.verificar(listaDeCartas));
 	
 	}
 	

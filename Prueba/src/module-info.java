@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Equipo
- *
- */
-module Prueba {
-}
