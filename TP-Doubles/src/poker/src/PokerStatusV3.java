@@ -1,6 +1,4 @@
 package poker.src;
-
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,46 +13,55 @@ public class PokerStatusV3 {
 	
 	// AHORA QUIERO DECIR QUE SE FORMA, SI POKER, COLOR O TRIO
 	
-	public boolean esManoGanador() {
-			
-		return true;
+	public boolean esManoGanadoraMisCartasDe(List<Carta> listaDeCartas1, List<Carta> listaDeCartas2) {
+		
+		boolean esGanador = true;
+		
+		if (this.verificar(listaDeCartas1) == "Poker" && this.verificar(listaDeCartas2) == "Color") {
+			esGanador = !esGanador;
+		}
+		else if (this.verificar(listaDeCartas1) == "Poker" && this.verificar(listaDeCartas2) == "Trio") {
+			esGanador = !esGanador;
+		}
+		
+		return esGanador;
+		
+		
 	}
 	
-	public String verificar(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
+	public String verificar(List<Carta> listaDeCartas) {
 		
 		String resultado = "No se formo nada";
 		
-		if(this.hayColor(carta1, carta2, carta3, carta4, carta5)) {
+		if(this.hayColor(listaDeCartas)) {
 			resultado = "Color";
 		}
-		else if (this.hayTrio(carta1, carta2, carta3, carta4, carta5)) {
+		else if (this.hayTrio(listaDeCartas)) {
 			resultado = "Trio";
 		}
-		else if(this.hayPoker(carta1, carta2, carta3, carta4, carta5)) {
+		else if(this.hayPoker(listaDeCartas)) {
 			resultado = "Poker";
 		}
 		return resultado;
 	}
 	
-	public boolean hayPoker(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
+	public boolean hayPoker(List<Carta> listaDeCartas) {
 		
-		return (this.tieneMismoNumero(carta1, carta2, carta3, carta4, carta5) || this.tieneMismoPalo(carta1, carta2, carta3, carta4, carta5));
+		return (this.tieneMismoNumero(listaDeCartas) || this.tieneMismoPalo(listaDeCartas));
 	}
 	
-    public boolean tieneMismoNumero(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
+    public boolean tieneMismoNumero(List<Carta> listaDeCartas) {
 
-		List<Carta> listaDeCartas =  Arrays.asList(carta1,carta2,carta3,carta4,carta5);
-		List<Carta> cartak =  listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta1, c)).collect(Collectors.toList());
-		List<Carta> cartax =  listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta2, c)).collect(Collectors.toList());
+		List<Carta> cartak =  listaDeCartas.stream().filter(c -> this.esElMismoNumero(listaDeCartas.get(0), c)).collect(Collectors.toList());
+		List<Carta> cartax =  listaDeCartas.stream().filter(c -> this.esElMismoNumero(listaDeCartas.get(1), c)).collect(Collectors.toList());
 
 		return (cartak.size() == 4 || cartax.size() == 4);
 	}
 	
-	public boolean tieneMismoPalo(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
+	public boolean tieneMismoPalo(List<Carta> listaDeCartas) {
 		
-		List<Carta> listaDeCartas =  Arrays.asList(carta1,carta2,carta3,carta4,carta5);
-		List<Carta> cartak =  listaDeCartas.stream().filter(c -> this.esElMismoPalo(carta1, c)).collect(Collectors.toList());
-		List<Carta> cartax =  listaDeCartas.stream().filter(c -> this.esElMismoPalo(carta2, c)).collect(Collectors.toList());
+		List<Carta> cartak =  listaDeCartas.stream().filter(c -> this.esElMismoPalo(listaDeCartas.get(0), c)).collect(Collectors.toList());
+		List<Carta> cartax =  listaDeCartas.stream().filter(c -> this.esElMismoPalo(listaDeCartas.get(1), c)).collect(Collectors.toList());
 	
 		return (cartak.size() == 4 || cartax.size() == 4);
 	}
@@ -79,18 +86,17 @@ public class PokerStatusV3 {
     // ================== PARTE 2 ==================
     // =============================================
 	
-    public boolean hayColor(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
-        List<Carta> listaDeCartas = Arrays.asList(carta1,carta2,carta3,carta4,carta5);
-        List<Carta> cartasFiltradas = listaDeCartas.stream().filter(c -> this.esElMismoPalo(carta1, c)).collect(Collectors.toList());
+    public boolean hayColor(List<Carta> listaDeCartas) {
+       
+        List<Carta> cartasFiltradas = listaDeCartas.stream().filter(c -> this.esElMismoPalo(listaDeCartas.get(0), c)).collect(Collectors.toList());
         return (cartasFiltradas.size() == 5);
     }
     
-    public boolean hayTrio(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
+    public boolean hayTrio(List<Carta> listaDeCartas) {
    
-        List<Carta> listaDeCartas =  Arrays.asList(carta1,carta2,carta3,carta4,carta5);
-        List<Carta> cartas1 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta1, c)).collect(Collectors.toList());
-        List<Carta> cartas2 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta2, c)).collect(Collectors.toList());
-        List<Carta> cartas3 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(carta3, c)).collect(Collectors.toList());
+        List<Carta> cartas1 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(listaDeCartas.get(0), c)).collect(Collectors.toList());
+        List<Carta> cartas2 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(listaDeCartas.get(1), c)).collect(Collectors.toList());
+        List<Carta> cartas3 = listaDeCartas.stream().filter(c -> this.esElMismoNumero(listaDeCartas.get(2), c)).collect(Collectors.toList());
         
         return (cartas1.size() == 3 || cartas2.size() == 3 || cartas3.size() == 3);
     }
