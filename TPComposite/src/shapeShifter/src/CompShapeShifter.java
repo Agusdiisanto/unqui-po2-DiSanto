@@ -38,6 +38,10 @@ public class CompShapeShifter implements IShapeShifter {
 	@Override
 	public IShapeShifter flat() {
 		
+		if (this.deepest() < 1) {
+			return  this;
+		}
+		
 		CompShapeShifter newSS = new CompShapeShifter();
 		List<Integer> values = this.values();
 		
