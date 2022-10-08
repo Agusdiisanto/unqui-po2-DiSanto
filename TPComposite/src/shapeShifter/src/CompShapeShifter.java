@@ -37,35 +37,33 @@ public class CompShapeShifter implements IShapeShifter {
 
 	@Override
 	public IShapeShifter flat() {
-		// TODO Auto-generated method stub
 		
-		ArrayList<IShapeShifter> elements = new ArrayList<IShapeShifter>();
+		CompShapeShifter newSS = new CompShapeShifter();
+		List<Integer> values = this.values();
 		
-		if (this.deepest() >= 1) {
-			for (int i = 0; i < children.size(); i++) {
-				elements.add(getChildren().get(i));
-				this.getChildren().remove(i);
-			}
-			this.setChildren(elements);
+		for(Integer value : values) {
+			newSS.addElements(new ShapeShifter(value));
 		}
-		return this;
+		return newSS;
 	}
 
 	@Override
 	public List<Integer> values() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Integer> values = new ArrayList<Integer>();
+		
+		for(IShapeShifter children : this.getChildren()) {
+			values.addAll(children.values());
+		}
+		return values;
 	}
 
 	public ArrayList<IShapeShifter> getChildren() {
 		return children;
 	}
-
-
-	private void setChildren(ArrayList<IShapeShifter> children) {
-		this.children = children;
-	}	
 	
-	
+	public void addElements(IShapeShifter shap) {
+		children.add(shap);
+	}
 	
 }
