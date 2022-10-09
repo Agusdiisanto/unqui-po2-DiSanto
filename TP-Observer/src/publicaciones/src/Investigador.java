@@ -48,11 +48,11 @@ public class Investigador implements ISubscripcion{
 	
 	public boolean esDeInteres(ArticuloCientifico articulo) {
 		
-		boolean tieneInteresDeTipo = this.getArticulosDeInteres().stream().anyMatch(c -> c.equals(articulo.getTipoDeArticulo()));
-		boolean tieneInteresDeTitulo = this.getArticulosDeInteres().stream().anyMatch(c -> c.equals(articulo.getTitulo()));
-		boolean tieneInteresDeLugar = this.getArticulosDeInteres().stream().anyMatch(c -> c.equals(articulo.getLugar()));
+		boolean contieneInteresEnElTitulo = this.getIntereses().stream().anyMatch(interes -> articulo.getTitulo().contains(interes));
+		boolean contieneInteresEnElTipo = this.getIntereses().stream().anyMatch(interes -> articulo.getTipoDeArticulo().contains(interes));
+		boolean contieneInteresEnLosAutores = this.getIntereses().stream().anyMatch(interes -> articulo.getAutores().contains(interes));
 		
-		return tieneInteresDeTipo || tieneInteresDeTitulo ||  tieneInteresDeLugar;
+		return contieneInteresEnElTitulo || contieneInteresEnElTipo || contieneInteresEnLosAutores;
 	}
 
 	private void addArticuloDeInteres(ArticuloCientifico nuevoArticulo) {
