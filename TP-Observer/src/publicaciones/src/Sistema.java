@@ -35,6 +35,21 @@ public class Sistema {
 	}
 	
 	
+	public void susbscribirInvestigador(ISubscripcion unSuscriptor) {
+		
+		if (!this.estaSubscripto(unSuscriptor)) {
+			subscripciones.add(unSuscriptor);
+		}
+	}
 	
+	public boolean estaSubscripto(ISubscripcion unSuscriptor) {
+		return subscripciones.contains(unSuscriptor);
+	}
+	
+	public void desusbcribirInvestigador(ISubscripcion unSuscriptor) {
+		if (this.estaSubscripto(unSuscriptor)) {
+			subscripciones.remove(unSuscriptor);
+		}
+	}
 	
 }
